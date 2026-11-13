@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>حاسبة العمر والتاريخ: دليلك الشامل</title>
+  <meta name="description" content="دليل عربي لحساب العمر بالميلادي، مع أعمار كل سنوات الميلاد من 1900 إلى 2026 ضمن صفحات الأجيال، وشرح السنوات الكبيسة والتقويم الهجري وصيغ Excel.">
+  <meta name="theme-color" content="#155e55">
+  <meta name="google-site-verification" content="-4d7RpkSXJ0bDwgboWHouZ9A5RkhfDT-Gz9ixXti-6Q" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">انتقل إلى المحتوى</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="دليل العمر، الصفحة الرئيسية">
+        <span class="brand-mark" aria-hidden="true">ع</span>
+        <span class="brand-text">
+          <span class="brand-name">دليل العمر</span>
+          <span class="brand-tagline">حساب العمر والتقويم</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="التنقل الرئيسي">
+        <a href="#articles">المقالات</a>
+        <a href="#generations">الأجيال</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <p class="eyebrow">دليل تعليمي مستقل</p>
+            <h1>حاسبة العمر والتاريخ: دليلك الشامل</h1>
+            <p class="lead">
+              يشرح هذا الدليل كيف يُحسب العمر بالتقويم الميلادي، ولماذا لا تكفي عملية طرح بسيطة بين سنتين،
+              وكيف يتعامل التقويم مع السنوات الكبيسة والمواليد في 29 فبراير. كما يتناول الفرق بين السنة
+              الميلادية والسنة الهجرية، ويعرض طرقاً عملية للحساب في Excel وGoogle Sheets. وتغطي صفحات
+              الأجيال كل سنة ميلاد من 1900 إلى 2026 مع العمر المقابل لها.
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#calculator">احسب عمرك بالميلادي</a>
+              <a class="button button-secondary" href="#generations">تصفح الأجيال</a>
+            </div>
+          </div>
+          <aside class="formula-card" aria-label="قاعدة سريعة لحساب العمر">
+            <p class="formula-label">قاعدة سريعة</p>
+            <p class="formula-large">2026 - سنة الميلاد</p>
+            <p class="formula-equals">= العمر الذي تبلغه في 2026 بعد يوم ميلادك</p>
+            <p class="formula-note">
+              قبل حلول يوم الميلاد يكون العمر أقل بسنة واحدة. وللحصول على النتيجة بالأشهر والأيام،
+              يلزم إدخال تاريخ الميلاد كاملاً وليس السنة فقط.
+            </p>
+            <div class="formula-years" aria-hidden="true">
+              <span>1900: 125 أو 126</span>
+              <span>1980: 45 أو 46</span>
+              <span>2012: 13 أو 14</span>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <section class="calculator" id="calculator" aria-labelledby="calculator-title">
+        <h2 id="calculator-title">احسب عمرك بالميلادي</h2>
+        <p class="calculator-intro">
+          أدخل تاريخ ميلادك لمعرفة عمرك بالسنوات والأشهر والأيام حتى تاريخ اليوم. الحساب يجري داخل
+          متصفحك ولا يُرسل أي بيانات إلى أي جهة.
+        </p>
+        <form class="age-form" data-age-form novalidate>
+          <div class="field">
+            <label for="birthdate">تاريخ الميلاد</label>
+            <input type="date" id="birthdate" name="birthdate" min="1900-01-01" required>
+          </div>
+          <button class="button button-primary" type="submit">احسب العمر</button>
+        </form>
+        <p class="form-hint">
+          يعتمد الحساب على التقويم الميلادي. إذا كنت مولوداً في 29 فبراير، تُعامل السنة غير الكبيسة
+          وفق قاعدة 1 مارس في هذه الحاسبة.
+        </p>
+        <p class="form-error" data-error hidden></p>
+        <div class="age-result" data-result hidden aria-live="polite">
+          <p class="age-result-title">نتيجة الحساب</p>
+          <p class="age-main" data-age-main></p>
+          <p class="age-details" data-age-details></p>
+        </div>
+        <noscript>
+          <p class="form-hint">الحاسبة تحتاج إلى JavaScript لتعمل، لكن جميع المقالات وصفحات الأجيال متاحة للقراءة دون أي برمجة.</p>
+        </noscript>
+      </section>
+    </div>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>ماذا يغطي هذا الدليل؟</h2>
+            <p>ثلاثة محاور مترابطة تساعدك على فهم العمر بصورة أدق.</p>
+          </div>
+        </div>
+        <div class="card-grid">
+          <article class="card">
+            <p class="card-kicker">الأساسيات</p>
+            <h3>حساب العمر الميلادي</h3>
+            <p>
+              العمر ليس مجرد ناتج طرح سنة من سنة. يعتمد الحساب الدقيق على يوم الميلاد والشهر،
+              وعلى عدد الأيام الفعلية في كل سنة، وهو ما يوضحه هذا الدليل بأمثلة بسيطة.
+            </p>
+          </article>
+          <article class="card">
+            <p class="card-kicker">التقويم</p>
+            <h3>السنوات الكبيسة والفرق بين التقويمين</h3>
+            <p>
+              دورة الأرض حول الشمس لا تكتمل في 365 يوماً بالضبط، ومن هنا تأتي السنة الكبيسة.
+              وبالمثل، فإن السنة الهجرية أقصر من الميلادية بنحو 11 يوماً، وهذا يغيّر العمر الرقمي.
+            </p>
+          </article>
+          <article class="card">
+            <p class="card-kicker">التطبيق</p>
+            <h3>الحساب في جداول البيانات</h3>
+            <p>
+              تشرح مقالة Excel وGoogle Sheets دالة DATEDIF وبديل YEARFRAC، مع صيغ جاهزة
+              للتعامل مع الخلايا الفارغة والتواريخ غير الصالحة والحالات الحدية.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="articles">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>مقالات مختارة</h2>
+            <p>شروحات مطولة بلغة عربية واضحة، بلا حشو وبلا وعود تسويقية.</p>
+          </div>
+        </div>
+        <div class="card-grid">
+          <article class="card">
+            <p class="card-kicker">التقويم الميلادي</p>
+            <h3><a href="blog/leap-year.html">لماذا يوجد 29 فبراير؟ شرح مبسط لقاعدة السنوات الكبيسة</a></h3>
+            <p>
+              من دورة الأرض حول الشمس إلى استثناءات القرون، مع تفسير خاص لكيفية حساب عمر
+              من وُلد في 29 فبراير.
+            </p>
+            <a class="card-link" href="blog/leap-year.html">اقرأ المقال</a>
+          </article>
+          <article class="card">
+            <p class="card-kicker">التقويم الهجري</p>
+            <h3><a href="blog/hijri-calendar.html">التقويم الهجري وأثره على حساب العمر</a></h3>
+            <p>
+              لماذا يزيد العمر الهجري تدريجياً عن الميلادي؟ وكيف يؤثر ذلك في الوثائق الرسمية
+              والعبادات اليومية؟
+            </p>
+            <a class="card-link" href="blog/hijri-calendar.html">اقرأ المقال</a>
+          </article>
+          <article class="card">
+            <p class="card-kicker">أدوات عملية</p>
+            <h3><a href="blog/excel-age.html">كيفية حساب العمر بدقة في Excel وGoogle Sheets</a></h3>
+            <p>
+              صيغ جاهزة باستخدام DATEDIF وYEARFRAC، وأخطاء شائعة يجب تجنبها، وطريقة التعامل
+              مع المواليد في 29 فبراير.
+            </p>
+            <a class="card-link" href="blog/excel-age.html">اقرأ المقال</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="generations">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>الأعمار في 2026 حسب الجيل وسنة الميلاد</h2>
+            <p>ثماني صفحات تغطي كل سنة من 1900 إلى 2026 دون فراغ. اختر الجيل لعرض جدول كامل بكل سنواته، مع العمر بعد يوم الميلاد وقبله.</p>
+          </div>
+        </div>
+        <div class="gen-grid">
+          <a class="gen-tile" href="generations/greatest-generation.html">
+            <span class="gen-tile-range">1900-1927</span>
+            <span class="gen-tile-name">الجيل الأعظم</span>
+            <span class="gen-tile-age">99 إلى 126 سنة في 2026</span>
+            <span class="gen-tile-count">28 سنة ميلاد</span>
+          </a>
+          <a class="gen-tile" href="generations/silent-generation.html">
+            <span class="gen-tile-range">1928-1945</span>
+            <span class="gen-tile-name">الجيل الصامت</span>
+            <span class="gen-tile-age">81 إلى 98 سنة في 2026</span>
+            <span class="gen-tile-count">18 سنة ميلاد</span>
+          </a>
+          <a class="gen-tile" href="generations/baby-boomers.html">
+            <span class="gen-tile-range">1946-1964</span>
+            <span class="gen-tile-name">جيل طفرة المواليد</span>
+            <span class="gen-tile-age">62 إلى 80 سنة في 2026</span>
+            <span class="gen-tile-count">19 سنة ميلاد</span>
+          </a>
+          <a class="gen-tile" href="generations/generation-x.html">
+            <span class="gen-tile-range">1965-1980</span>
+            <span class="gen-tile-name">الجيل إكس</span>
+            <span class="gen-tile-age">46 إلى 61 سنة في 2026</span>
+            <span class="gen-tile-count">16 سنة ميلاد</span>
+          </a>
+          <a class="gen-tile" href="generations/millennials.html">
+            <span class="gen-tile-range">1981-1996</span>
+            <span class="gen-tile-name">جيل الألفية</span>
+            <span class="gen-tile-age">30 إلى 45 سنة في 2026</span>
+            <span class="gen-tile-count">16 سنة ميلاد</span>
+          </a>
+          <a class="gen-tile" href="generations/generation-z.html">
+            <span class="gen-tile-range">1997-2012</span>
+            <span class="gen-tile-name">الجيل زد</span>
+            <span class="gen-tile-age">14 إلى 29 سنة في 2026</span>
+            <span class="gen-tile-count">16 سنة ميلاد</span>
+          </a>
+          <a class="gen-tile" href="generations/generation-alpha.html">
+            <span class="gen-tile-range">2013-2024</span>
+            <span class="gen-tile-name">الجيل ألفا</span>
+            <span class="gen-tile-age">من سنتين إلى 13 سنة في 2026</span>
+            <span class="gen-tile-count">12 سنة ميلاد</span>
+          </a>
+          <a class="gen-tile" href="generations/generation-beta.html">
+            <span class="gen-tile-range">2025-2026</span>
+            <span class="gen-tile-name">الجيل بيتا</span>
+            <span class="gen-tile-age">أقل من سنة إلى سنة واحدة في 2026</span>
+            <span class="gen-tile-count">سنتا ميلاد</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>كيف يُحسب العمر فعلاً؟</h2>
+            <p>الفرق بين العمر الكامل والعمر التقريبي في ثلاث خطوات.</p>
+          </div>
+        </div>
+        <p>
+          عندما نقول إن شخصاً عمره 36 سنة في 2026، فإننا نعني أنه أكمل 36 سنة ميلادية كاملة.
+          أما إذا لم يكن قد بلغ يوم ميلاده بعد، فسيكون قد أكمل 35 سنة فقط. لذلك تظهر في جداول
+          الأجيال عمران ممكنان لكل سنة ميلاد: عمر قبل يوم الميلاد وعمر بعده.
+        </p>
+        <ol>
+          <li>اطرح سنة الميلاد من 2026 لتحصل على العمر التقريبي بعد يوم الميلاد.</li>
+          <li>إذا كان تاريخ اليوم يسبق شهر الميلاد ويومه، فاطرح سنة إضافية.</li>
+          <li>لحساب الأشهر والأيام، استخدم التاريخ الكامل وتحقق من عدد الأيام في الشهر السابق.</li>
+        </ol>
+        <div class="callout">
+          <p class="callout-title">مثال سريع</p>
+          <p>
+            من وُلد في 15 سبتمبر 1990 يكون عمره 35 سنة في 14 سبتمبر 2026، ثم يصبح 36 سنة
+            في 15 سبتمبر 2026. هذا الفارق الصغير هو سبب أهمية إدخال اليوم والشهر عند الحساب.
+          </p>
+        </div>
+        <p>
+          تزداد المسألة تعقيداً عند المواليد في 29 فبراير، لأن هذا اليوم لا يتكرر كل سنة.
+          وتشرح مقالة السنوات الكبيسة القواعد المختلفة المعتمدة في الوثائق الرسمية، بينما توضح
+          مقالة Excel كيفية التعامل مع هذه الحالة داخل جداول البيانات.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>أخطاء شائعة تجعل حساب العمر غير دقيق</h2>
+            <p>أربعة مواضع تتكرر فيها الأخطاء، حتى عند استخدام حاسبة أو جدول بيانات.</p>
+          </div>
+        </div>
+        <div class="mistake-grid">
+          <article>
+            <h3>طرح سنة الميلاد فقط</h3>
+            <p>
+              طرح سنة الميلاد من السنة الحالية يعطي تقديراً سريعاً، لكنه لا يتحقق من حلول
+              يوم الميلاد هذا العام. لذلك يظهر الرقم أكبر بسنة لدى من لم يحل يوم ميلاده
+              بعد، خصوصاً في الأشهر الأولى من السنة.
+            </p>
+          </article>
+          <article>
+            <h3>اعتبار أول يناير بداية العمر الجديد</h3>
+            <p>
+              العمر لا يزيد مع تغير السنة الميلادية، بل يزيد في يوم الميلاد نفسه. فمن وُلد
+              في سبتمبر يبقى في العمر السابق خلال يناير وفبراير، ولا ينتقل إلى السنة التالية
+              إلا عند حلول يوم ميلاده.
+            </p>
+          </article>
+          <article>
+            <h3>إهمال مواليد 29 فبراير</h3>
+            <p>
+              يوم 29 فبراير لا يتكرر في كل سنة، لذلك تحتاج الجهات الرسمية إلى قاعدة واضحة:
+              28 فبراير أو 1 مارس. يجب تطبيق القاعدة نفسها في الوثائق والتعاملات، وعدم
+              تغييرها من سنة إلى أخرى.
+            </p>
+          </article>
+          <article>
+            <h3>الخلط بين التقويم الميلادي والهجري</h3>
+            <p>
+              السنة الهجرية أقصر بنحو 11 يوماً، لذا يختلف العمر الهجري عن الميلادي تدريجياً.
+              لا تصح مقارنة رقم هجري برقم ميلادي دون تحديد التقويم المرجعي، ولا يُعتمد على
+              التحويل التقريبي في المعاملات الرسمية.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="excel-guide">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>حساب العمر في Excel وGoogle Sheets</h2>
+            <p>عندما يتكرر الحساب لعدد كبير من التواريخ، تصبح الصيغة الموحدة أسرع وأقل خطأ.</p>
+          </div>
+        </div>
+        <p>
+          الحاسبة اليدوية مناسبة لمعرفة عمر شخص واحد، لكن ملفات العمل والدراسة قد تحتاج إلى
+          حساب العمر لعشرات الصفوف في وقت واحد. هنا تظهر أهمية الدوال الجاهزة، وأشهرها دالة
+          DATEDIF التي تحسب السنوات الكاملة بين تاريخين، ودالة YEARFRAC التي تعطي نسبة من
+          السنة وتصلح للتقدير السريع. الفرق بينهما أن الأولى تحترم يوم الميلاد وتتوقف عنده،
+          بينما الثانية قد تنتج كسراً في نهاية السنة.
+        </p>
+        <p>
+          قبل الاعتماد على أي صيغة، تأكد من أن خلية تاريخ الميلاد تحتوي على تاريخ حقيقي وليس
+          نصاً يشبه التاريخ. ثم اختبر الصيغة على ثلاثة حالات: شخص لم يحل يوم ميلاده بعد، ومولود
+          في 29 فبراير، وخلية فارغة. هذه الاختبارات الثلاثة تكشف معظم الأخطاء قبل استخدام
+          الملف في معاملة رسمية.
+        </p>
+        <div class="guide-band">
+          <p>
+            يحتوي دليل
+            <a href="https://excel-age-guide.vercel.app" target="_blank" rel="noopener">حساب العمر في Excel وGoogle Sheets</a>
+            على شرح إنجليزي مفصل للصيغ نفسها، مع أمثلة تفاعلية وطرق للتعامل مع الأخطاء
+            والحالات الحدية. ويمكن الرجوع إليه بعد تجربة الحاسبة في هذه الصفحة لمقارنة
+            النتيجة وفهم سبب اختلافها عن الطرح المباشر.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="note-band">
+          <h2>العمر بين التقويمين الميلادي والهجري</h2>
+          <p>
+            لا يتطابق العمر الهجري مع العمر الميلادي، لأن السنة الهجرية أقصر بنحو 11 يوماً.
+            ونتيجة هذا الفرق تتراكم مع مرور الوقت، فقد يزيد العمر الهجري سنة كاملة أو أكثر لدى
+            كبار السن. وعند الحاجة إلى مطابقة تاريخ الميلاد مع التقويم الهجري، يمكن استخدام أداة
+            موثوقة مثل <a href="https://agecalculatorsa.com" target="_blank" rel="noopener">حساب العمر بالهجري</a>،
+            مع الانتباه إلى أن النتيجة قد تختلف بيوم أو يومين بحسب تقويم أم القرى أو طريقة رؤية الهلال.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>أسئلة شائعة</h2>
+            <p>إجابات قصيرة للحالات التي تتكرر عند حساب العمر.</p>
+          </div>
+        </div>
+        <div class="faq">
+          <details>
+            <summary>هل عمري في 2026 هو 2026 ناقص سنة الميلاد؟</summary>
+            <p>
+              هذا هو العمر الذي تبلغه بعد يوم ميلادك في 2026. أما قبل يوم الميلاد، فالعمر أقل
+              بسنة واحدة. فمن وُلد في 1985 يصبح 41 سنة بعد يوم ميلاده في 2026، ويكون 40 سنة قبله.
+            </p>
+          </details>
+          <details>
+            <summary>لماذا يختلف عمري بالتقويم الهجري؟</summary>
+            <p>
+              لأن السنة الهجرية تتكون من 12 شهراً قمرياً، أي نحو 354 يوماً، بينما السنة الميلادية
+              نحو 365 يوماً. الفرق اليومي صغير، لكنه يتراكم بمرور السنوات، لذا يظهر العمر الهجري
+              أكبر من الميلادي تدريجياً.
+            </p>
+          </details>
+          <details>
+            <summary>كيف أحسب عمري إذا وُلدت في 29 فبراير؟</summary>
+            <p>
+              في السنوات غير الكبيسة، تعتمد بعض الجهات 28 فبراير ويعتمد بعضها 1 مارس. الأفضل
+              استخدام التاريخ الكامل في الحساب، ومراجعة القاعدة المعتمدة لدى الجهة الرسمية عند
+              بلوغ سن قانونية محددة.
+            </p>
+          </details>
+          <details>
+            <summary>هل الحاسبة في هذه الصفحة ترسل بياناتي إلى خادم؟</summary>
+            <p>
+              لا. تعمل الحاسبة بالكامل داخل المتصفح باستخدام JavaScript، ولا يُرسل تاريخ الميلاد
+              إلى أي خادم. يمكنك التحقق من ذلك من أدوات المطور في المتصفح أثناء استخدام الحاسبة.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="footer-brand" href="index.html">
+            <span class="brand-mark" aria-hidden="true">ع</span>
+            دليل العمر
+          </a>
+          <p>
+            مرجع تعليمي مستقل يشرح حساب العمر بالميلادي، والسنوات الكبيسة، والفرق بين التقويم
+            الميلادي والهجري، دون تسجيل أو إعلانات.
+          </p>
+        </div>
+        <div>
+          <p class="footer-title">المقالات</p>
+          <ul class="footer-links">
+            <li><a href="blog/leap-year.html">السنوات الكبيسة</a></li>
+            <li><a href="blog/hijri-calendar.html">التقويم الهجري والعمر</a></li>
+            <li><a href="blog/excel-age.html">حساب العمر في Excel</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-title">أجيال مختارة</p>
+          <ul class="footer-links">
+            <li><a href="generations/generation-x.html">الجيل إكس</a></li>
+            <li><a href="generations/millennials.html">جيل الألفية</a></li>
+            <li><a href="generations/generation-z.html">الجيل زد</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 دليل العمر</span>
+        <span>جميع الحسابات الميلادية، ما لم يُذكر خلاف ذلك.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var form = document.querySelector("[data-age-form]");
+      if (!form) return;
+
+      var input = document.getElementById("birthdate");
+      var error = document.querySelector("[data-error]");
+      var result = document.querySelector("[data-result]");
+      var main = document.querySelector("[data-age-main]");
+      var details = document.querySelector("[data-age-details]");
+
+      var today = new Date();
+      today.setHours(0, 0, 0, 0);
+      var maxValue = [
+        today.getFullYear(),
+        String(today.getMonth() + 1).padStart(2, "0"),
+        String(today.getDate()).padStart(2, "0")
+      ].join("-");
+      input.max = maxValue;
+
+      function parseDate(value) {
+        if (!value) return null;
+        var parts = value.split("-").map(Number);
+        if (parts.length !== 3 || !parts[0] || !parts[1] || !parts[2]) return null;
+        var date = new Date(parts[0], parts[1] - 1, parts[2]);
+        date.setHours(0, 0, 0, 0);
+        if (
+          date.getFullYear() !== parts[0] ||
+          date.getMonth() !== parts[1] - 1 ||
+          date.getDate() !== parts[2]
+        ) return null;
+        return date;
+      }
+
+      function isLeap(year) {
+        return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+      }
+
+      function anniversary(year, birth) {
+        if (birth.getMonth() === 1 && birth.getDate() === 29 && !isLeap(year)) {
+          return new Date(year, 2, 1);
+        }
+        return new Date(year, birth.getMonth(), birth.getDate());
+      }
+
+      function addMonths(date, count) {
+        var target = new Date(date.getFullYear(), date.getMonth() + count, 1);
+        var lastDay = new Date(target.getFullYear(), target.getMonth() + 1, 0).getDate();
+        target.setDate(Math.min(date.getDate(), lastDay));
+        return target;
+      }
+
+      function daysBetween(from, to) {
+        var a = Date.UTC(from.getFullYear(), from.getMonth(), from.getDate());
+        var b = Date.UTC(to.getFullYear(), to.getMonth(), to.getDate());
+        return Math.round((b - a) / 86400000);
+      }
+
+      function unitText(number, one, two, few, many) {
+        if (number === 1) return one;
+        if (number === 2) return two;
+        if (number >= 3 && number <= 10) return number + " " + few;
+        return number + " " + many;
+      }
+
+      function daysAfterText(number) {
+        if (number === 1) return "يوم واحد";
+        if (number === 2) return "يومين";
+        if (number >= 3 && number <= 10) return number + " أيام";
+        return number + " يوماً";
+      }
+
+      function fullAge(birth, reference) {
+        var years = reference.getFullYear() - birth.getFullYear();
+        var lastAnniversary = anniversary(reference.getFullYear(), birth);
+        if (reference < lastAnniversary) {
+          years -= 1;
+          lastAnniversary = anniversary(reference.getFullYear() - 1, birth);
+        }
+        var months = 0;
+        while (months < 11) {
+          var next = addMonths(lastAnniversary, months + 1);
+          if (next > reference) break;
+          months += 1;
+        }
+        var cursor = addMonths(lastAnniversary, months);
+        var days = daysBetween(cursor, reference);
+        return { years: years, months: months, days: days };
+      }
+
+      function nextBirthday(birth, reference) {
+        var next = anniversary(reference.getFullYear(), birth);
+        if (next < reference) {
+          next = anniversary(reference.getFullYear() + 1, birth);
+        }
+        return next;
+      }
+
+      function format(number) {
+        return new Intl.NumberFormat("en-US").format(number);
+      }
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var birth = parseDate(input.value);
+        error.hidden = true;
+        result.hidden = true;
+
+        if (!birth) {
+          error.textContent = "الرجاء إدخال تاريخ ميلاد صالح قبل الحساب.";
+          error.hidden = false;
+          input.focus();
+          return;
+        }
+        if (birth > today) {
+          error.textContent = "لا يمكن أن يكون تاريخ الميلاد في المستقبل.";
+          error.hidden = false;
+          input.focus();
+          return;
+        }
+        if (birth.getFullYear() < 1900) {
+          error.textContent = "الرجاء إدخال تاريخ ميلاد بعد عام 1900.";
+          error.hidden = false;
+          input.focus();
+          return;
+        }
+
+        var age = fullAge(birth, today);
+        var totalDays = daysBetween(birth, today);
+        var upcoming = nextBirthday(birth, today);
+        var until = daysBetween(today, upcoming);
+
+        var parts = [];
+        if (age.years > 0) {
+          parts.push(unitText(age.years, "سنة واحدة", "سنتان", "سنوات", "سنة"));
+        }
+        if (age.months > 0) {
+          parts.push(unitText(age.months, "شهر واحد", "شهران", "أشهر", "شهراً"));
+        }
+        if (age.days > 0) {
+          parts.push(unitText(age.days, "يوم واحد", "يومان", "أيام", "يوماً"));
+        }
+
+        main.textContent = parts.length > 0
+          ? "عمرك " + parts.join(" و")
+          : "عمرك أقل من يوم واحد، فتاريخ ميلادك هو اليوم.";
+
+        var birthdayText = until === 0
+          ? "تاريخ ميلادك هو اليوم."
+          : "يوم ميلادك القادم بعد " + daysAfterText(until) + ".";
+
+        details.textContent =
+          "إجمالي الأيام منذ الميلاد: " +
+          unitText(totalDays, "يوم واحد", "يومان", "أيام", "يوماً") +
+          ". " + birthdayText;
+        result.hidden = false;
+      });
+    })();
+  </script>
+</body>
+</html>
